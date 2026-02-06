@@ -1,4 +1,5 @@
-import { prisma } from './lib/prisma'
+import { prisma } from './lib/prisma.js'
+import './Controller/insideController'
 
 async function main() {
   // Create a new user with a post
