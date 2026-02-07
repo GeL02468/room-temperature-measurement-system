@@ -1,14 +1,19 @@
 import { prisma } from './lib/prisma.js'
-import './Controller/insideController'
+import { serve } from '@hono/node-server';
+import { app } from './app.js';
+import './controllers/insideController.js'
 
 async function main() {
-  // Create a new user with a post
-  const user = await prisma.inside_measure.findUnique({
-    where: { id: 1 },
 
-  })
-  console.log('Created user:', user)
 }
+
+const port = 3000;
+console.log(`Server is running on http://localhost:${port}`);
+
+serve({
+  fetch: app.fetch,
+  port,
+})
 
 main()
   .then(async () => {
