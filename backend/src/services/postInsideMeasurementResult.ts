@@ -1,4 +1,4 @@
-// 室内環境情報登録API
+// 室内環境測定値登録API
 import { prisma } from '../lib/prisma'
 
 export const postInsideMeasurementResult = async (requestBody: any) => {

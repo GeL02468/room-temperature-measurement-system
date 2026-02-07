@@ -1,4 +1,4 @@
-// 室内環境情報登録DTO
+// 室内環境測定値登録DTO
 export type insideMeasurementResult = {
   insideTemperature: number;
   insideHumidy: number;
