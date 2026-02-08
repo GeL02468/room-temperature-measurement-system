@@ -1,7 +1,9 @@
 import { Hono } from 'hono';
 import * as insideController from '../controllers/insideController';
+import * as outsideController from '../controllers/outsideController';
 
 const insideRouter = new Hono();
+const outsideRouter = new Hono();
 
 // 室内気圧取得パス
 insideRouter.get('/get/air_pressure', async (c: any) => {
@@ -29,4 +31,13 @@ insideRouter.post('/post/inside_measurement_result', async (c: any) => {
     return c.json(result);
 });
 
-export default insideRouter;
+// 室外環境測定値登録パス
+outsideRouter.get('/post/outside_measurement_result', async (c: any) => {
+    const result = await outsideController.postOutsideMeasurementResultHandler();
+    return c.json(result);
+});
+
+export default  {
+    insideRouter,
+    outsideRouter
+}

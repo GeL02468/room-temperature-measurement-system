@@ -58,6 +58,8 @@
   - OpenWeatherAPIを使用
   - 1h, 1day, 1week, 1monthごとの表示機に切り替えることが可能
     - 1h以外は、計測した値の平均値を算出、表示
+- 閾値到達通知
+  - discord webhookを使用
 ## APIの種類
 ### 室内環境系
 - 室内温度取得API

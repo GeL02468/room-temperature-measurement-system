@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import insideRouter from './routes/route'
+import router from './routes/route'
 
 const app = new Hono();
 
@@ -7,6 +7,7 @@ app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
 
-app.route('/measurement', insideRouter);
+app.route('/measurement/inside', router.insideRouter);
+app.route('/measurement/outside', router.outsideRouter);
 
 export { app }

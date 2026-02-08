@@ -1,7 +1,6 @@
 import { prisma } from './lib/prisma.js'
 import { serve } from '@hono/node-server';
 import { app } from './app.js';
-import './controllers/insideController.js'
 
 async function main() {
 
