@@ -32,7 +32,7 @@ insideRouter.post('/post/inside_measurement_result', async (c: any) => {
 });
 
 // 室外環境測定値登録パス
-outsideRouter.get('/post/outside_measurement_result', async (c: any) => {
+outsideRouter.post('/post/outside_measurement_result', async (c: any) => {
     const result = await outsideController.postOutsideMeasurementResultHandler();
     return c.json(result);
 });

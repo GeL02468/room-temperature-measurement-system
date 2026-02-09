@@ -10,5 +10,5 @@ export const postInsideMeasurementResult = async (requestBody: any) => {
         inside_air_pressure: requestBody.inside_air_pressure,
         inside_measure_date: new Date(),
     },
-  })
-}
+  });
+};
