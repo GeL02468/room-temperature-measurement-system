@@ -9,5 +9,6 @@ app.get('/', (c) => {
 
 app.route('/measurement/inside', router.insideRouter);
 app.route('/measurement/outside', router.outsideRouter);
+app.route('/measurement/threshold', router.thresholdRouter);
 
 export { app }

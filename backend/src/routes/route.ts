@@ -1,9 +1,11 @@
 import { Hono } from 'hono';
 import * as insideController from '../controllers/insideController';
 import * as outsideController from '../controllers/outsideController';
+import * as thresholdController from '../controllers/thresholdController';
 
 const insideRouter = new Hono();
 const outsideRouter = new Hono();
+const thresholdRouter = new Hono();
 
 // 室内気圧取得パス
 insideRouter.get('/get/air_pressure', async (c: any) => {
@@ -37,7 +39,23 @@ outsideRouter.post('/post/outside_measurement_result', async (c: any) => {
     return c.json(result);
 });
 
+// 閾値取得パス
+thresholdRouter.get('/get/threshold', async(c: any) => {
+    const result = await thresholdController.getThresholdValue();
+    return c.json(result);
+});
+
+// 閾値登録パス
+thresholdRouter.put('/put/threshold', async(c: any) => {
+    const body = await c.req.json();
+    console.log(body);
+    const result = await thresholdController.putThresholdValue(body);
+    console.log("test: ",result)
+    return c.json(result);
+});
+
 export default  {
     insideRouter,
-    outsideRouter
+    outsideRouter,
+    thresholdRouter
 }
