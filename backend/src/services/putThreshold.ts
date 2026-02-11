@@ -2,7 +2,6 @@
 import { prisma } from '../lib/prisma'
 
 export const putThreshold = async (requestBody: any) => {
-  console.log("reqBody: ", requestBody.outsideMaxTemperature);
   const result = await prisma.threshold.update({
     where: { id: 1 },
     data: {
@@ -16,6 +15,5 @@ export const putThreshold = async (requestBody: any) => {
         outside_measure_date: new Date(),
     },
   });
-  console.log("result: ", result);
   return result;
 };

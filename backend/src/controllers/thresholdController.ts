@@ -11,7 +11,6 @@ export const getThresholdValue = async () => {
 
 // 閾値登録ハンドラー
 export const putThresholdValue = async (req: thresholdValue) => {
-  console.log("req: ",req)
   const result = await putThreshold(req);
   return result
 };

@@ -28,7 +28,6 @@ insideRouter.get('/get/humidity', async (c: any) => {
 // 室内環境測定値登録パス
 insideRouter.post('/post/inside_measurement_result', async (c: any) => {
     const body = await c.req.json();
-    console.log("登録した室内環境情報: ",body);
     const result =  insideController.postInsideMeasurementResultHandler(body);
     return c.json(result);
 });
@@ -48,9 +47,7 @@ thresholdRouter.get('/get/threshold', async(c: any) => {
 // 閾値登録パス
 thresholdRouter.put('/put/threshold', async(c: any) => {
     const body = await c.req.json();
-    console.log(body);
     const result = await thresholdController.putThresholdValue(body);
-    console.log("test: ",result)
     return c.json(result);
 });
 
