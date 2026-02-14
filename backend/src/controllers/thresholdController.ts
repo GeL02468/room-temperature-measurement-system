@@ -6,7 +6,7 @@ import type { thresholdValue } from '../DTO/thresholdSchema'
 // 閾値取得ハンドラー
 export const getThresholdValue = async () => {
   const result = await getThreshold();
-  return result
+  return result;
 };
 
 // 閾値登録ハンドラー

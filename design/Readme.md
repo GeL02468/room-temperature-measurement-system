@@ -98,3 +98,26 @@
 - 室内湿度最低閾値(Float)
 - 室内気圧最高閾値(Float)
 - 室内気圧最低閾値(Float)
+## URLパス一覧
+[室内環境]
+### 室内温度取得
+- measurement/temperature/get : OK
+### 室内湿度取得
+- measurement/humidity/get : OK
+### 室内気圧取得
+- measurement/air-pressure/get : OK
+### 室内環境情報登録
+- measurement/inside/post : OK
+[室外環境]
+### 室外温度取得
+- measurement/temperature/get/outside : OK
+### 室外湿度取得
+- measurement/humidity/get/outside : OK
+### 室外気圧取得
+- measurement/air-pressure/get/outside : OK
+### 室外環境情報登録
+- measurement/outside/post : OK
+[閾値]
+### 閾値登録画面
+- measurement/threshold/get : OK
+- measurement/threshold/put : OK
