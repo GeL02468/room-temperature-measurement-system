@@ -5,7 +5,6 @@ import * as span from '../lib/span'
 const temperatureRouter = new Hono();
 
 // 室内温度取得パス
-// 1hour, 1day, 1week, 1month ごとにパスを分け、Service層にて日時計算の部分で、指定したそれぞれの引数を減算する
 temperatureRouter.get('/get/per-hour', async (c: any) => {
     const result = await temperatureController.getInsideTemperatureHandler(span.default.hour);
     return c.json(result);
