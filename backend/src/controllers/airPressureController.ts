@@ -3,12 +3,14 @@ import { getOutsideAirPressure } from '../services/getOutsideAirPressure'
 
 // 室内気圧取得ハンドラー
 export const getInsideAirPressureHandler = async (req: number) => {
-  const airPressure = await getInsideAirPressure(req);
-  return airPressure;
+  const insideAirPressure = await getInsideAirPressure(req);
+  return insideAirPressure;
 };
 
-// 室外気圧取得ハンドラー
-export const getOutsideAirPressureHandler = async (req: number) => {
-  const airPressure = await getOutsideAirPressure(req);
-  return airPressure;
+// 室内・室外気圧取得ハンドラー
+export const getBothAirPressureHandler = async (req: number) => {
+  const outsideAirPressure = await getOutsideAirPressure(req);
+  const insideAirPressure = await getInsideAirPressure(req);
+  const result: object = {outsideAirPressure, insideAirPressure};
+  return result;
 };

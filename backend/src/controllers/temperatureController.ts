@@ -3,12 +3,14 @@ import { getOutsideTemperature } from '../services/getOutsideTemperature'
 
 // 室内温度取得ハンドラー
 export const getInsideTemperatureHandler = async (req: number) => {
-  const airPressure = await getInsideTemperature(req);
-  return airPressure;
+  const insideTemperature = await getInsideTemperature(req);
+  return insideTemperature;
 };
 
-// 室外温度取得ハンドラー
-export const getOutsideTemperatureHandler = async (req: number) => {
-  const airPressure = await getOutsideTemperature(req);
-  return airPressure;
+// 室内・室外温度取得ハンドラー
+export const getBothTemperatureHandler = async (req: number) => {
+  const insideTemperature = await getInsideTemperature(req);
+  const outsideTemperature = await getOutsideTemperature(req);
+  const result: object = {insideTemperature, outsideTemperature};
+  return result;
 };

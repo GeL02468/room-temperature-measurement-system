@@ -3,12 +3,14 @@ import { getOutsideHumidity } from '../services/getOutsideHumidity'
 
 // 室内湿度取得ハンドラー
 export const getInsideHumidityHandler = async (req: number) => {
-  const airPressure = await getInsideHumidity(req);
-  return airPressure;
+  const insideHumidity = await getInsideHumidity(req);
+  return insideHumidity;
 };
 
-// 室外湿度取得ハンドラー
-export const getOutsideHumidityHandler = async (req: number) => {
-  const airPressure = await getOutsideHumidity(req);
-  return airPressure;
+// 室内・室外湿度取得ハンドラー
+export const getBothHumidityHandler = async (req: number) => {
+  const insideHumidity = await getInsideHumidity(req);
+  const outsideHumidity = await getOutsideHumidity(req);
+  const result: object = {insideHumidity, outsideHumidity};
+  return result;
 };

@@ -24,19 +24,19 @@ humidityRouter.get('/get/per-month', async (c: any) => {
 
 // 室外湿度取得パス
 humidityRouter.get('/get/per-hour/outside', async (c: any) => {
-    const result = await humidityController.getOutsideHumidityHandler(span.default.hour);
+    const result = await humidityController.getBothHumidityHandler(span.default.hour);
     return c.json(result);
 });
 humidityRouter.get('/get/per-day/outside', async (c: any) => {
-    const result = await humidityController.getOutsideHumidityHandler(span.default.day);
+    const result = await humidityController.getBothHumidityHandler(span.default.day);
     return c.json(result);
 });
 humidityRouter.get('/get/per-week/outside', async (c: any) => {
-    const result = await humidityController.getOutsideHumidityHandler(span.default.week);
+    const result = await humidityController.getBothHumidityHandler(span.default.week);
     return c.json(result);
 });
 humidityRouter.get('/get/per-month/outside', async (c: any) => {
-    const result = await humidityController.getOutsideHumidityHandler(span.default.month);
+    const result = await humidityController.getBothHumidityHandler(span.default.month);
     return c.json(result);
 });
 
