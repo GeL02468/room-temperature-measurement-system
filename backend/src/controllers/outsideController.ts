@@ -8,6 +8,5 @@ export const postOutsideMeasurementResultHandler = async () => {
     const getWeatherResult = await recieveWeatherInfo();
     const json = JSON.parse(getWeatherResult);
     // DBへ登録
-    const result = await postOutsideMeasurementResult(json)
-    return result;
+    return await postOutsideMeasurementResult(json)
 };

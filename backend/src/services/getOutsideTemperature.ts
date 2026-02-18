@@ -21,6 +21,6 @@ export const getOutsideTemperature = async (req: number) => {
     resultDateArray.push(measure.outside_measure_date);
   };
   // 戻り値用のオブジェクト定義（オブジェクトの中身：温度、測定時刻）
-  let resultObject: object = {resultTemperatureArray, resultDateArray};
+  const resultObject: object = {resultTemperatureArray, resultDateArray};
   return resultObject;
 };

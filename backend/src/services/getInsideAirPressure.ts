@@ -21,6 +21,6 @@ export const getInsideAirPressure = async (req: number) => {
     resultDateArray.push(measure.inside_measure_date);
   };
   // 戻り値用のオブジェクト定義（オブジェクトの中身：温度、測定時刻）
-  let resultObject: object = {resultAirPressureArray, resultDateArray};
+  const resultObject: object = {resultAirPressureArray, resultDateArray};
   return resultObject;
 }

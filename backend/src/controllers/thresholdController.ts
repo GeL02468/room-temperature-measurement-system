@@ -5,12 +5,10 @@ import type { thresholdValue } from '../DTO/thresholdSchema'
 
 // 閾値取得ハンドラー
 export const getThresholdValue = async () => {
-  const result = await getThreshold();
-  return result;
+  return await getThreshold();
 };
 
 // 閾値登録ハンドラー
 export const putThresholdValue = async (req: thresholdValue) => {
-  const result = await putThreshold(req);
-  return result
+  return await putThreshold(req);
 };
