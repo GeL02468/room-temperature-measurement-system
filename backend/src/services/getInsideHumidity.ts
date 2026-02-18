@@ -21,6 +21,6 @@ export const getInsideHumidity = async (req: number) => {
     resultDateArray.push(measure.inside_measure_date);
   };
   // 戻り値用のオブジェクト定義（オブジェクトの中身：温度、測定時刻）
-  let resultObject: object = {resultHumidityArray, resultDateArray};
+  const resultObject: object = {resultHumidityArray, resultDateArray};
   return resultObject;
 }
