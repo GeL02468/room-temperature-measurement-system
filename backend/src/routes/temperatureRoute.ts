@@ -4,39 +4,21 @@ import * as span from '../lib/span'
 
 const temperatureRouter = new Hono();
 
-// 室内温度取得パス
+// 温度取得パス
 temperatureRouter.get('/get/per-hour', async (c: any) => {
-    const result = await temperatureController.getInsideTemperatureHandler(span.default.hour);
+    const result = await temperatureController.getTemperatureHandler(span.default.hour);
     return c.json(result);
 });
 temperatureRouter.get('/get/per-day', async (c: any) => {
-    const result = await temperatureController.getInsideTemperatureHandler(span.default.day);
+    const result = await temperatureController.getTemperatureHandler(span.default.day);
     return c.json(result);
 });
 temperatureRouter.get('/get/per-week', async (c: any) => {
-    const result = await temperatureController.getInsideTemperatureHandler(span.default.week);
+    const result = await temperatureController.getTemperatureHandler(span.default.week);
     return c.json(result);
 });
 temperatureRouter.get('/get/per-month', async (c: any) => {
-    const result = await temperatureController.getInsideTemperatureHandler(span.default.month);
-    return c.json(result);
-});
-
-// 室外温度取得パス
-temperatureRouter.get('/get/per-hour/outside', async (c: any) => {
-    const result = await temperatureController.getBothTemperatureHandler(span.default.hour);
-    return c.json(result);
-});
-temperatureRouter.get('/get/per-day/outside', async (c: any) => {
-    const result = await temperatureController.getBothTemperatureHandler(span.default.day);
-    return c.json(result);
-});
-temperatureRouter.get('/get/per-week/outside', async (c: any) => {
-    const result = await temperatureController.getBothTemperatureHandler(span.default.week);
-    return c.json(result);
-});
-temperatureRouter.get('/get/per-month/outside', async (c: any) => {
-    const result = await temperatureController.getBothTemperatureHandler(span.default.month);
+    const result = await temperatureController.getTemperatureHandler(span.default.month);
     return c.json(result);
 });
 
