@@ -1,26 +1,30 @@
 import { BrowserRouter as BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import './App.css'
 import * as word from '../word.json'
-import InsideInfo from './InsideInfo.tsx'
+import TemperatureInfo from './TemperatureInfo.tsx'
+import HumidityInfo from './HumidityInfo.tsx'
+import AirPressureInfo from './AirPressureInfo.tsx'
+import ThresholdSetting from './ThresholdSetting.tsx'
 
 function App() {
   return (
     <>
-      <h1>
-        <span></span>
-        {word.title}
-      </h1>
       <BrowserRouter>
-        <div className="header-items">
-          <nav>
-            <Link to="/Inside" className="header-item">気温情報</Link>
-            <Link to="/Inside" className="header-item">湿度情報</Link>
-            <Link to="/Inside" className="header-item">気圧情報</Link>
-            <Link to="/Inside" className="header-item">設定</Link>
-          </nav>
-        </div>
+        <nav>
+          <h1>
+            <span></span>
+            <Link to="/">{word.title}</Link>
+          </h1>
+          <Link to="/Temperature" className="temperature">{word.TemperatureInfo}</Link>
+          <Link to="/Humidity" className="humidity">{word.HumidityInfo}</Link>
+          <Link to="/Pressure" className="pressure">{word.AirPressureInfo}</Link>
+          <Link to="/Settings" className="settings">{word.ThresholdSetting}</Link>
+        </nav>
         <Routes>
-          <Route path="/Inside" element={<InsideInfo />} />
+          <Route path="/Temperature" element={<TemperatureInfo />} />
+          <Route path="/Humidity" element={<HumidityInfo />} />
+          <Route path="/Pressure" element={<AirPressureInfo />} />
+          <Route path="/Settings" element={<ThresholdSetting />} />
         </Routes>  
       </BrowserRouter>
     </>

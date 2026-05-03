@@ -6,8 +6,9 @@
 }
 h1 {
   font-size: 20px;
+  color: black;
   position: absolute;
-  top: 10px;
+  top: 9px;
   right:900px;
   display: flex;
   align-items: right;
@@ -16,36 +17,33 @@ h1 {
 h1 span {
   display: block;
   width: 20px;
-  height: 20px;
+  height: 22px;
   margin-right: 8px;
   border-radius: 50%;
   background: linear-gradient(90deg, rgba(247, 93, 139, 1), rgba(254, 220, 64, 1));
 }
-nav {
+.temperature {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  top: 25px;
-  right: 20px;
+  top: 21px;
+  left: 800px;
 }
-.header-items{
-  display: flex;
-  justify-content: start;
+.humidity {
+  position: absolute;
+  top: 21px;
+  left: 900px;
 }
-.header-item{
-  margin: 0px 20px;
+.pressure {
+  position: absolute;
+  top: 21px;
+  left: 1000px;
+}
+.settings {     
+  position: absolute;
+  top: 21px;
+  left: 1100px;
 }
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
