@@ -8,8 +8,8 @@ h1 {
   font-size: 20px;
   color: black;
   position: absolute;
-  top: 9px;
-  right:900px;
+  top: 2rem;
+  left:5rem;
   display: flex;
   align-items: right;
   justify-content: flex-start;
@@ -24,23 +24,23 @@ h1 span {
 }
 .temperature {
   position: absolute;
-  top: 21px;
-  left: 800px;
+  top: 3rem;
+  right: 25rem;
 }
 .humidity {
   position: absolute;
-  top: 21px;
-  left: 900px;
+  top: 3rem;
+  right: 20rem;
 }
 .pressure {
   position: absolute;
-  top: 21px;
-  left: 1000px;
+  top: 3rem;
+  right: 15rem;
 }
 .settings {     
   position: absolute;
-  top: 21px;
-  left: 1100px;
+  top: 3rem;
+  right: 10rem;
 }
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
