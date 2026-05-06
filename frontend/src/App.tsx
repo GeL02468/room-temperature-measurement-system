@@ -1,7 +1,7 @@
 import { BrowserRouter as BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import './App.css'
 import * as word from '../word.json'
-import TemperatureInfo from './TemperatureInfo.tsx'
+import { TemperatureInfo } from './TemperatureInfo.tsx'
 import HumidityInfo from './HumidityInfo.tsx'
 import AirPressureInfo from './AirPressureInfo.tsx'
 import ThresholdSetting from './ThresholdSetting.tsx'
