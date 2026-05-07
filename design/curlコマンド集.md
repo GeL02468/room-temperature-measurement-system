@@ -5,4 +5,4 @@
 ## http://localhost:3000/measurement/inside/post
 - curl.exe -X POST -H "Content-Type: application/json" -d "{ \"id\": 1, \"inside_temperature\": 25, \"inside_humidity\": 55, \"inside_air_pressure\": 1013, \"inside_measure_date\": \"2026-02-07 16:06:08.735\", \"inside_measure_palce\": \"リビング\" }" http://localhost:3000/measurement/inside/post
 ## http://localhost:3000/measurement/outside/post
-- curl.exe -X POST -H "Content-Type: application/json" -d "{ \"id\": 1, \"inside_temperature\": 25, \"inside_humidity\": 55, \"inside_air_pressure\": 1013, \"inside_measure_date\": \"2026-02-07 16:06:08.735\", \"inside_measure_palce\": \"リビング\" }" http://localhost:3000/measurement/outside/post
+- curl.exe -X POST -H "Content-Type: application/json" -d "{ \"id\": 1, \"outside_temperature\": 25, \"outside_humidity\": 55, \"outside_air_pressure\": 1013, \"outside_measure_date\": \"2026-02-07 16:06:08.735\", \"outside_measure_palce\": \"リビング\" }" http://localhost:3000/measurement/outside/post

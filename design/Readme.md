@@ -62,6 +62,8 @@
   - OpenWeatherAPIを使用
   - 1h, 1day, 1week, 1monthごとの表示機に切り替えることが可能
     - 1h以外は、計測した値の平均値を算出、表示
+    - node-cronを使用して、毎時0分の処理を実行
+      - https://codingls.com/nodejs/4599/
 - 閾値到達通知
   - discord webhookを使用
 ## APIの種類
