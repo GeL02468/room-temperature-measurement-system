@@ -1,4 +1,5 @@
 // src/components/ChartJsExample.tsx
+import './TemperatureInfo.css'
 import {
   Chart as ChartJS,
   LineElement,
@@ -11,7 +12,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { chartData } from "./data";
-import './TemperatureInfo.css'
 
 ChartJS.register(
   LineElement,
@@ -24,19 +24,11 @@ ChartJS.register(
 );
 
 // 軸ラベル
-const labels = chartData.map((d) => d.month);
+const labels = chartData.map((d) => d.hour);
 
 // 実績・目標データ
-const actualValues = chartData.map((d) => d.actual);
-const targetValues = chartData.map((d) => d.target);
-
-// // グラデーション生成ユーティリティ
-// function createGradient(ctx: CanvasRenderingContext2D, color: string) {
-//   const gradient = ctx.createLinearGradient(0, 0, 0, 260);
-//   gradient.addColorStop(0, color + "88"); // 上側は少し濃く
-//   gradient.addColorStop(1, color + "00"); // 下に向かって透明に
-//   return gradient;
-// }
+const actualValues = chartData.map((d) => d.inside);
+const targetValues = chartData.map((d) => d.outside);
 
 export function TemperatureInfo() {
   return (
@@ -80,7 +72,7 @@ export function TemperatureInfo() {
               labels,
               datasets: [
                 {
-                  label: "実績",
+                  label: "室内",
                   data: actualValues,
                   borderColor: "#3b82f6",
                   backgroundColor: "#3b82f666",
@@ -89,7 +81,7 @@ export function TemperatureInfo() {
                   borderWidth: 2,
                 },
                 {
-                  label: "目標",
+                  label: "室外",
                   data: targetValues,
                   borderColor: "#9ca3af",
                   borderDash: [6, 4],

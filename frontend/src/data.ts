@@ -1,14 +1,33 @@
 // src/data.ts
 export type ChartDatum = {
-  month: string;
-  actual: number; // 実績
-  target: number; // 目標
+  hour: string;
+  inside: number; // 室内
+  outside: number; // 室外
 };
 
 export const chartData: ChartDatum[] = [
-  { month: "Jan", actual: 120, target: 150 },
-  { month: "Feb", actual: 210, target: 200 },
-  { month: "Mar", actual: 160, target: 220 },
-  { month: "Apr", actual: 280, target: 250 },
-  { month: "May", actual: 300, target: 260 },
+  { hour: "0:00", inside: 20, outside: 25},
+  { hour: "1:00", inside: 20, outside: 25 },
+  { hour: "2:00", inside: 20, outside: 25 },
+  { hour: "3:00", inside: 20, outside: 25 },
+  { hour: "4:00", inside: 20, outside: 25 },
+  { hour: "5:00", inside: 20, outside: 25 },
+  { hour: "6:00", inside: 20, outside: 25 },
+  { hour: "7:00", inside: 20, outside: 25 },
+  { hour: "8:00", inside: 20, outside: 25 },
+  { hour: "9:00", inside: 20, outside: 25 },
+  { hour: "10:00", inside: 20, outside: 25 },
+  { hour: "11:00", inside: 20, outside: 25 },
+  { hour: "12:00", inside: 20, outside: 25 },
+  { hour: "13:00", inside: 20, outside: 25 },
+  { hour: "14:00", inside: 20, outside: 25 },
+  { hour: "15:00", inside: 20, outside: 25 },
+  { hour: "16:00", inside: 20, outside: 25 },
+  { hour: "17:00", inside: 20, outside: 25 },
+  { hour: "18:00", inside: 20, outside: 25 },
+  { hour: "19:00", inside: 20, outside: 25 },
+  { hour: "20:00", inside: 20, outside: 25 },
+  { hour: "21:00", inside: 20, outside: 25 },
+  { hour: "22:00", inside: 20, outside: 25 },
+  { hour: "23:00", inside: 20, outside: 25 },
 ];

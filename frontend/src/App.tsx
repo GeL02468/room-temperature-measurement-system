@@ -2,8 +2,8 @@ import { BrowserRouter as BrowserRouter, Route, Routes, Link } from 'react-route
 import './App.css'
 import * as word from '../word.json'
 import { TemperatureInfo } from './TemperatureInfo.tsx'
-import HumidityInfo from './HumidityInfo.tsx'
-import AirPressureInfo from './AirPressureInfo.tsx'
+import { HumidityInfo } from './HumidityInfo.tsx'
+import { AirPressureInfo } from './AirPressureInfo.tsx'
 import ThresholdSetting from './ThresholdSetting.tsx'
 
 function App() {
