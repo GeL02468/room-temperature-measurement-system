@@ -1,6 +1,9 @@
 # 制作テーマ
 - 室内環境計測・通知システム
 - 参考サイト：https://crexgroup.com/ja/development/development/raspberry-pi-project-ideas/
+## ToDo
+- フロントエンド画面上でのグラフの描画
+  - バックエンド側との結合
 ## 具体的な機能
 - リビング内の室温、湿度、気圧を計測し、Webアプリ上にて確認できる機能
 - 一時間ごとに、上記の各値を計測し、サーバーに記録を送信、DBに登録する機能
