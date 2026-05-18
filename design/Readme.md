@@ -35,6 +35,7 @@
 4. Webアプリの作成（フロントエンド、デザインは簡素でOK）
   - フロントエンドの作成
   - バックエンドとの結合 
+    - https://kou029w.github.io/intro-to-web-dev/hono-react/hands-on.html
 5. RaspberryPiでの環境センサーの作成
 6. Webアプリと環境センサーの結合
 7. スマートスピーカーの作成

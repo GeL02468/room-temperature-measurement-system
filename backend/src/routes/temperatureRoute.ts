@@ -13,7 +13,7 @@ temperatureRouter.get('/get/per-day', async (c: any) => {
     const result = await temperatureController.getTemperatureHandler(span.default.day);
     return c.json(result);
 });
-temperatureRouter.get('/get/per-week', async (c: any) => {
+temperatureRouter.get('/', async (c: any) => {
     const result = await temperatureController.getTemperatureHandler(span.default.week);
     return c.json(result);
 });

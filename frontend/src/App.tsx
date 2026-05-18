@@ -15,16 +15,16 @@ function App() {
             <span></span>
             <Link to="/">{word.title}</Link>
           </h1>
-          <Link to="/Temperature" className="temperature">{word.TemperatureInfo}</Link>
-          <Link to="/Humidity" className="humidity">{word.HumidityInfo}</Link>
-          <Link to="/Pressure" className="pressure">{word.AirPressureInfo}</Link>
-          <Link to="/Settings" className="settings">{word.ThresholdSetting}</Link>
+          <Link to="/measurement/temperature" className="temperature">{word.TemperatureInfo}</Link>
+          <Link to="/measurement/humidity" className="humidity">{word.HumidityInfo}</Link>
+          <Link to="/measurement/air-pressure" className="pressure">{word.AirPressureInfo}</Link>
+          <Link to="/measurement/threshold" className="settings">{word.ThresholdSetting}</Link>
         </nav>
         <Routes>
-          <Route path="/Temperature" element={<TemperatureInfo />} />
-          <Route path="/Humidity" element={<HumidityInfo />} />
-          <Route path="/Pressure" element={<AirPressureInfo />} />
-          <Route path="/Settings" element={<ThresholdSetting />} />
+          <Route path="/measurement/temperature" element={<TemperatureInfo />} />
+          <Route path="/measurement/humidity" element={<HumidityInfo />} />
+          <Route path="/measurement/air-pressure" element={<AirPressureInfo />} />
+          <Route path="/measurement/threshold" element={<ThresholdSetting />} />
         </Routes>  
       </BrowserRouter>
     </>

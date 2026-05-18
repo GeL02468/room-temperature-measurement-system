@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { cors } from "hono/cors"; // 追加
 import axios from 'axios';
 import cron from "node-cron";
 import temperatureRouter from './routes/temperatureRoute'
@@ -10,10 +11,13 @@ import outsideRouter from './routes/outsideRoute'
 
 const app = new Hono();
 
-// パスルーティング
-app.get('/', (c) => {
-  return c.text('Hello Hono!');
-});
+// CORSミドルウェアを適用
+app.use(
+  "/measurement/*",
+  cors({
+    origin: "http://localhost:5173", // Reactのオリジンを許可
+  }),
+);
 
 app.route('/measurement/temperature', temperatureRouter);
 app.route('/measurement/humidity', humidityRouter);
