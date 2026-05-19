@@ -16,7 +16,6 @@ import { useEffect, useState } from "react";
 
 // APIレスポンスの型定義
 type Responce = {
-  message: string;
   insideTemperature: {
     resultTemperatureArray: number[],
     resultDateArray: Date[]
@@ -38,7 +37,6 @@ export function TemperatureInfo() {
       .then((json) => setData(json))
       .catch((err) => setError(err.message));
   }, []);
-  console.log((JSON.stringify(data)))
   return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       {error && (

@@ -1,10 +1,10 @@
 import { BrowserRouter as BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import './App.css'
 import * as word from '../word.json'
-import { TemperatureInfo } from './TemperatureInfo.tsx'
-import { HumidityInfo } from './HumidityInfo.tsx'
-import { AirPressureInfo } from './AirPressureInfo.tsx'
-import ThresholdSetting from './ThresholdSetting.tsx'
+import { TemperatureInfo } from './components/temperature/TemperatureInfo.tsx'
+import { HumidityInfo } from './components/humidity/HumidityInfo.tsx'
+import { AirPressureInfo } from './components/airPressure/AirPressureInfo.tsx'
+import ThresholdSetting from './components/threshold/ThresholdSetting.tsx'
 
 function App() {
   return (

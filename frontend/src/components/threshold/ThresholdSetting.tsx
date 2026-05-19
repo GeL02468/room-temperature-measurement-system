@@ -1,5 +1,5 @@
 import './ThresholdSetting.css'
-import * as word from '../word.json'
+import * as word from '../../../word.json'
 
 function ThresholdSetting() {
   return (
