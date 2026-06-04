@@ -29,6 +29,7 @@ type Responce = {
 export function TemperatureInfo() {
   const [data, setData] = useState<Responce | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState("tab1");
 
   useEffect(() => {
     // Hono APIを呼び出す
@@ -38,26 +39,49 @@ export function TemperatureInfo() {
       .catch((err) => setError(err.message));
   }, []);
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      {error && (
-        <div style={{ color: "red", marginBottom: "1rem" }}>
-          <strong>Error:</strong> {error}
-        </div>
-      )}
-
-      {data ? (
-        <div>
-          <p>
-            <strong>Message:</strong> {data.insideTemperature.resultTemperatureArray[0]}
-          </p>
-          <p>
-            <strong>Timestamp:</strong> {data.insideTemperature.resultDateArray[0].toString()}
-          </p>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div className="card">
+      <div className="tabs">
+      <button
+      className={activeTab === "tab1" ? "active" : ""}
+      onClick={() => setActiveTab("tab1")}
+      >
+      タブ1
+      </button>
+      <button
+      className={activeTab === "tab2" ? "active" : ""}
+      onClick={() => setActiveTab("tab2")}
+      >
+      タブ2
+      </button>
+      </div>
+      <div className="content">
+      {activeTab === "tab1" && 
+      <p>
+        <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+          {error && (
+            <div style={{ color: "red", marginBottom: "1rem" }}>
+              <strong>Error:</strong> {error}
+            </div>
+          )}
+          {data ? (
+            // ここにグラフを表示するための枠を作成する（枠を別ファイルで作成して、コンポーネント化して共通化し、読み込ませる）
+            <div>
+              <p>
+                <strong>Message:</strong> {data.insideTemperature.resultTemperatureArray[0]}
+              </p>
+              <p>
+                <strong>Timestamp:</strong> {data.insideTemperature.resultDateArray[0].toString()}
+              </p>
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div> 
+      </p>}
+      {activeTab === "tab2" && <p>タブ2の内容です。</p>}
+      </div>
     </div>
+
   );
 }
 
