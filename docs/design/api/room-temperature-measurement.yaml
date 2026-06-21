@@ -8,34 +8,8 @@ servers:
   - url: http://localhost/api
 
 paths:
-  /sample:
-    post:
-      tags:
-        - Sample
-      summary: Sample API
-      description: Sample情報を登録します。
-      requestBody:
-        description: 入力内容
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SampleRequest'
-        required: true
-      responses:
-        "201":
-          description: Success
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    description: エラー内容
-                    example: "エラー内容"
-                  # 必要に応じて追加  
+  /notification:
+    $ref: "./paths/notification.yaml"
                   
 components:
   schemas:

@@ -1,0 +1,23 @@
+get:
+  description: Sample情報を登録します。
+  requestBody:
+    description: 入力内容
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/notificationIdInside.yaml'
+    required: true
+  responses:
+    "200":
+      description: Success
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: エラー内容
+                example: "エラー内容"

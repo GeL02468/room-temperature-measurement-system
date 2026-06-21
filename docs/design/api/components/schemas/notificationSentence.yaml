@@ -1,0 +1,3 @@
+type: String
+description: 通知内容
+example: "室内気温が35℃を超えました。"
