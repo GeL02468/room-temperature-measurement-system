@@ -1,5 +1,7 @@
+parameters:
+  $ref: '../components/parameters/period.yaml'
 get:
-  description: 通知取得API
+  description: 室内環境情報取得API
   responses:
     "200":
       description: Success
@@ -9,11 +11,15 @@ get:
             type: object
             propaties:
               id: 
-                $ref: '../components/schemas/notificationId.yaml'
-              sentence:
-                $ref: '../components/schemas/notificationSentence.yaml'
-              notificationTime:
-                $ref: '../components/schemas/notificationTime.yaml'
+                $ref: '../components/schemas/outsideId.yaml'
+              temperature:
+                $ref: '../components/schemas/temperature.yaml'
+              humidity:
+                $ref: '../components/schemas/humidity.yaml'
+              airPressure:
+                $ref: '../components/schemas/airPressure.yaml'
+              measurementTime:
+                $ref: '../components/schemas/measurementTime.yaml'
     "400":
       description: Bad Request
       content:

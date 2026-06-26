@@ -1,0 +1,4 @@
+in: query
+type: String
+description: データ取得期間
+enum: [ "now", "day", "month" ] 

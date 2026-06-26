@@ -1,5 +1,11 @@
-get:
-  description: 通知取得API
+post:
+  description: 判定閾値設定API
+  requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/RecipeInput'
   responses:
     "200":
       description: Success
