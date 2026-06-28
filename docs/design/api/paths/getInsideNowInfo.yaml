@@ -1,17 +1,20 @@
 parameters:
-  $ref: '../components/parameters/period.yaml'
+  - $ref: '../components/parameters/deviceId.yaml'
 get:
-  description: 室内環境情報取得API
+  summary: リアルタイム室内環境情報取得API
+  description: デバイスのリアルタイム室内環境情報を取得する
   responses:
-    "200":
+    200:
       description: Success
       content:
         application/json:
           schema:
             type: object
-            propaties:
-              id: 
-                $ref: '../components/schemas/outsideId.yaml'
+            properties:
+              deviceId:
+                $ref: '../components/schemas/deviceId.yaml'
+              deviceName: 
+                $ref: '../components/schemas/deviceName.yaml'
               temperature:
                 $ref: '../components/schemas/temperature.yaml'
               humidity:
@@ -20,27 +23,15 @@ get:
                 $ref: '../components/schemas/airPressure.yaml'
               measurementTime:
                 $ref: '../components/schemas/measurementTime.yaml'
-    "400":
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              $ref: '../components/schemas/error.yaml'
-    "404":
+    404:
       description: Not Found
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              $ref: '../components/schemas/error.yaml'
-    "500":
+            $ref: '../components/schemas/error.yaml'
+    500:
       description: Internal Server Error
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              $ref: '../components/schemas/error.yaml'
+            $ref: '../components/schemas/error.yaml'

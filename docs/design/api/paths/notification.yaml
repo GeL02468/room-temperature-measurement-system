@@ -1,40 +1,60 @@
 get:
+  summary: 通知一覧取得API
   description: 通知取得API
   responses:
-    "200":
+    200:
       description: Success
       content:
         application/json:
           schema:
-            type: object
-            propaties:
-              id: 
-                $ref: '../components/schemas/notificationId.yaml'
-              sentence:
-                $ref: '../components/schemas/notificationSentence.yaml'
-              notificationTime:
-                $ref: '../components/schemas/notificationTime.yaml'
-    "400":
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              $ref: '../components/schemas/error.yaml'
-    "404":
+            type: array
+            items:
+              type: object
+              required:
+                - notificationId
+                - deviceId
+                - sentence
+                - notificationTime
+              properties:
+                notificationId: 
+                  $ref: '../components/schemas/notificationId.yaml'
+                deviceId:
+                  $ref: '../components/schemas/deviceId.yaml'
+                sentence:
+                  $ref: '../components/schemas/notificationSentence.yaml'
+                notificationTime:
+                  $ref: '../components/schemas/notificationTime.yaml'
+    404:
       description: Not Found
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              $ref: '../components/schemas/error.yaml'
-    "500":
+            $ref: '../components/schemas/error.yaml'
+    500:
       description: Internal Server Error
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              $ref: '../components/schemas/error.yaml'
+            $ref: '../components/schemas/error.yaml'
+delete:
+  summary: 通知削除API
+  description: 通知削除API
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/success.yaml'
+    404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'

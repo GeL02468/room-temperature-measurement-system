@@ -1,0 +1,4 @@
+type: string
+description: デバイス名
+maxLength: 32
+example: "device1"

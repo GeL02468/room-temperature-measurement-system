@@ -1,0 +1,6 @@
+name: device_id
+in: path
+description: デバイスID（MACアドレス）
+required: true
+schema:
+  $ref: '../schemas/deviceId.yaml'

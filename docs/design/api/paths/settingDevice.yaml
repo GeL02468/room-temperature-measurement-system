@@ -1,0 +1,156 @@
+get:
+  summary: デバイス一覧取得API
+  description: システムに登録されている、すべてのデバイスの一覧を取得する
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                deviceId:
+                  $ref: '../components/schemas/deviceId.yaml'
+                deviceName:
+                  $ref: '../components/schemas/deviceName.yaml'
+    404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+post:
+  summary: デバイス追加API
+  description: デバイスを追加する
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            required:
+              - deviceId
+              - deviceName
+            properties:
+              deviceId:
+                $ref: '../components/schemas/deviceId.yaml'
+              deviceName: 
+                $ref: '../components/schemas/deviceName.yaml'
+  responses:
+    201:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+                - deviceId
+                - deviceName
+              properties:
+                deviceId:
+                  $ref: '../components/schemas/deviceId.yaml'
+                deviceName: 
+                  $ref: '../components/schemas/deviceName.yaml'
+    400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+put:
+  summary: デバイス名編集API
+  description: デバイス名を編集する
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            required:
+              - deviceId
+              - deviceName
+            properties:
+              deviceId:
+                $ref: '../components/schemas/deviceId.yaml'
+              deviceName: 
+                $ref: '../components/schemas/deviceName.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+                - deviceId
+                - deviceName
+              properties:
+                deviceId:
+                  $ref: '../components/schemas/deviceId.yaml'
+                deviceName: 
+                  $ref: '../components/schemas/deviceName.yaml'
+    400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+delete:
+  summary: デバイス削除API
+  description: デバイスを削除する
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            required:
+              - deviceId
+            properties:
+              deviceId:
+                $ref: '../components/schemas/deviceId.yaml'
+  responses:
+    204:
+      description: No Content
+    404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'

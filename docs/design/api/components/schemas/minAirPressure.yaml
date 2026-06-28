@@ -1,0 +1,3 @@
+type: number
+description: 判定閾値最小気圧
+example: 990.0

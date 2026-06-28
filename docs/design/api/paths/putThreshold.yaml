@@ -1,0 +1,64 @@
+parameters:
+  - $ref: '../components/parameters/deviceId.yaml'
+put:
+  summary: 判定閾値設定API
+  description: 各環境情報のアラートの閾値を設定するAPI
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - deviceId
+          properties:
+            deviceId:
+              $ref: '../components/schemas/deviceId.yaml'
+            maxTemperature:
+              $ref: '../components/schemas/maxTemperature.yaml'
+            minTemperature:
+              $ref: '../components/schemas/minTemperature.yaml'
+            maxHumidity:
+              $ref: '../components/schemas/maxHumidity.yaml'
+            minHumidity:
+              $ref: '../components/schemas/minHumidity.yaml'
+            maxAirPressure:
+              $ref: '../components/schemas/maxAirPressure.yaml'
+            minAirPressure:
+              $ref: '../components/schemas/minAirPressure.yaml'
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              deviceId:
+                $ref: '../components/schemas/deviceId.yaml'
+              deviceName: 
+                $ref: '../components/schemas/deviceName.yaml'
+              maxTemperature:
+                $ref: '../components/schemas/maxTemperature.yaml'
+              minTemperature:
+                $ref: '../components/schemas/minTemperature.yaml'
+              maxHumidity:
+                $ref: '../components/schemas/maxHumidity.yaml'
+              minHumidity:
+                $ref: '../components/schemas/minHumidity.yaml'
+              maxAirPressure:
+                $ref: '../components/schemas/maxAirPressure.yaml'
+              minAirPressure:
+                $ref: '../components/schemas/minAirPressure.yaml'
+    400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
