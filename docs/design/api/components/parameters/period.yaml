@@ -1,0 +1,7 @@
+name: period
+in: path
+description: 取得期間
+required: true
+schema:
+  type: string
+example: "1d"

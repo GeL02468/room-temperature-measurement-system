@@ -1,0 +1,3 @@
+type: string
+description: 成功処理
+example: "成功"

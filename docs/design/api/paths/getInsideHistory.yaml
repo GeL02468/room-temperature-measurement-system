@@ -1,0 +1,50 @@
+parameters:
+  - $ref: '../components/parameters/deviceId.yaml'
+  - $ref: '../components/parameters/period.yaml'
+get:
+  summary: 室内環境情報履歴取得API
+  description: デバイスの室内環境情報履歴を取得する
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+                - insideHistoryId
+                - deviceId
+                - deviceName
+                - temperature
+                - humidity
+                - airPressure
+                - measurementTime
+              properties:
+                insideHistoryId: 
+                  $ref: '../components/schemas/insideHistoryId.yaml'
+                deviceId:
+                  $ref: '../components/schemas/deviceId.yaml'
+                deviceName: 
+                  $ref: '../components/schemas/deviceName.yaml'
+                temperature:
+                  $ref: '../components/schemas/temperature.yaml'
+                humidity:
+                  $ref: '../components/schemas/humidity.yaml'
+                airPressure:
+                  $ref: '../components/schemas/airPressure.yaml'
+                measurementTime:
+                  $ref: '../components/schemas/measurementTime.yaml'
+    404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'

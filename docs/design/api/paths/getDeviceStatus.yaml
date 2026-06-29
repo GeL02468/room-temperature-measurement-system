@@ -1,0 +1,35 @@
+get:
+  summary: デバイスステータス一覧取得API
+  description: 全デバイスのステータス一覧を取得する
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                deviceId:
+                  $ref: '../components/schemas/deviceId.yaml'
+                deviceName:
+                  $ref: '../components/schemas/deviceName.yaml'
+                deviceStatus:
+                  $ref: '../components/schemas/deviceStatus.yaml'
+                geoLocationX:
+                  $ref: '../components/schemas/geoLocationX.yaml'
+                geoLocationY:
+                  $ref: '../components/schemas/geoLocationY.yaml'
+    404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'

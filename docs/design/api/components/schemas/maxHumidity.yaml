@@ -1,0 +1,3 @@
+type: number
+description: 判定閾値最大湿度
+example: 50.0

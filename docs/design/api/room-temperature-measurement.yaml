@@ -1,0 +1,23 @@
+openapi: 3.0.3
+info:
+  title: Room Tempetature Measurement API
+  version: 1.0.0
+  description: 室内環境計測・通知システムのAPI仕様書
+servers:
+  - url: http://localhost:3000/api
+security: []
+paths:
+  /notification:
+    $ref: "./paths/notification.yaml"
+  /login:
+    $ref: "./paths/getDeviceStatus.yaml"
+  /setting:
+    $ref: "./paths/settingDevice.yaml"
+  /current/{device_id}:
+    $ref: "./paths/getInsideNowInfo.yaml"
+  /history/inside/{device_id}/{period}:
+    $ref: "./paths/getInsideHistory.yaml"
+  /history/outside/{device_id}/{period}:
+    $ref: "./paths/getOutsideHistory.yaml"
+  /threshold/{device_id}:
+    $ref: "./paths/putThreshold.yaml"

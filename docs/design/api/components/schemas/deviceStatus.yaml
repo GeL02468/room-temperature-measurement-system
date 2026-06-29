@@ -1,0 +1,3 @@
+type: string
+description: デバイス状態
+enum: [ "normal", "error" ] 

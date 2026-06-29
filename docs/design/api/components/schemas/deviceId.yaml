@@ -1,0 +1,4 @@
+type: string
+description: デバイスID（MACアドレス）
+maxLength: 32
+example: "00:11:22:33:44:55"
