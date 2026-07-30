@@ -13,30 +13,63 @@ datasource db {
   provider = "postgresql"
 }
 
-model inside_measure {
-  id      Int      @id @default(autoincrement())
-  inside_temperature   Float
-  inside_humidity    Float
-  inside_air_pressure    Float
-  inside_measure_date   DateTime
-  inside_measure_palce   String
+model InsideHisotry {
+  inside_hisotry_id      Int      @id @default(autoincrement())
+  device_id String?
+  temperature   Float
+  humidity    Float
+  air_pressure    Float
+  measurement_time   DateTime
+  device Device? @relation(fields: [device_id], references: [device_id])
 }
 
-model outside_measure {
-  id      Int      @id @default(autoincrement())
-  outside_temperature   Float
-  outside_humidity    Float
-  outside_air_pressure    Float
-  outside_measure_date   DateTime
+model OutsideHistory {
+  outside_history_id      Int      @id @default(autoincrement())
+  device_id String?
+  temperature   Float
+  humidity    Float
+  air_pressure    Float
+  measurement_time   DateTime
+  device Device? @relation(fields: [device_id], references: [device_id])
 }
 
-model threshold {
-  id      Int      @id 
-  outside_temperature_max_threshold   Float
-  outside_temperature_min_threshold   Float
-  outside_humidity_max_threshold    Float
-  outside_humidity_min_threshold    Float
-  outside_air_pressure_max_threshold    Float
-  outside_air_pressure_min_threshold    Float
-  outside_measure_date   DateTime
+model Threshold {
+  threshold_id      Int      @id @default
+  temperature_max_threshold   Float
+  temperature_min_threshold   Float
+  humidity_max_threshold    Float
+  humidity_min_threshold    Float
+  air_pressure_max_threshold    Float
+  air_pressure_min_threshold    Float
+  device Device?
+}
+
+model Device {
+  device_id      String      @id @default
+  device_name    String
+  threshold_id Int  @unique
+  device_status  Status
+  geo_location_x Int
+  geo_location_y Int
+  temperature Float
+  humidity Float
+  air_pressure Float
+  measurement_time   DateTime
+  inside_histories InsideHisotry[]
+  outside_histories OutsideHisotry[]
+  notification Notification[]
+  threshold   Threshold @relation(fields: [threshold_id], references: [threshold_id])
+}
+
+model Notification {
+  notification_id Int @id @default(autoincrement())
+  device_id String?
+  sentence String
+  notification_time DateTime
+  device Device? @relation(fields: [device_id], references: [device_id])
+}
+
+enum Status {
+  Normal
+  Error
 }
