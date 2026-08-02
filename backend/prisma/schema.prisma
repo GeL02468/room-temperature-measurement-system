@@ -13,9 +13,9 @@ datasource db {
   provider = "postgresql"
 }
 
-model InsideHisotry {
+model InsideHistory {
   inside_hisotry_id      Int      @id @default(autoincrement())
-  device_id String?
+  device_id String
   temperature   Float
   humidity    Float
   air_pressure    Float
@@ -25,7 +25,7 @@ model InsideHisotry {
 
 model OutsideHistory {
   outside_history_id      Int      @id @default(autoincrement())
-  device_id String?
+  device_id String
   temperature   Float
   humidity    Float
   air_pressure    Float
@@ -34,18 +34,18 @@ model OutsideHistory {
 }
 
 model Threshold {
-  threshold_id      Int      @id @default
-  temperature_max_threshold   Float
-  temperature_min_threshold   Float
-  humidity_max_threshold    Float
-  humidity_min_threshold    Float
-  air_pressure_max_threshold    Float
-  air_pressure_min_threshold    Float
+  threshold_id      Int      @id @default(autoincrement())
+  max_temperature   Float
+  min_temperature   Float
+  max_humidity    Float
+  min_humidity    Float
+  max_air_pressure    Float
+  min_air_pressure    Float
   device Device?
 }
 
 model Device {
-  device_id      String      @id @default
+  device_id      String      @id
   device_name    String
   threshold_id Int  @unique
   device_status  Status
@@ -55,15 +55,15 @@ model Device {
   humidity Float
   air_pressure Float
   measurement_time   DateTime
-  inside_histories InsideHisotry[]
-  outside_histories OutsideHisotry[]
+  inside_histories InsideHistory[]
+  outside_histories OutsideHistory[]
   notification Notification[]
   threshold   Threshold @relation(fields: [threshold_id], references: [threshold_id])
 }
 
 model Notification {
   notification_id Int @id @default(autoincrement())
-  device_id String?
+  device_id String
   sentence String
   notification_time DateTime
   device Device? @relation(fields: [device_id], references: [device_id])
