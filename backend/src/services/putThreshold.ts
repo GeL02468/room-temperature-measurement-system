@@ -3,16 +3,15 @@ import { prisma } from '../lib/prisma'
 
 export const putThreshold = async (requestBody: any) => {
   const result = await prisma.threshold.update({
-    where: { id: 1 },
+    where: { threshold_id: 1 },
     data: {
-        id: requestBody.id,  
-        outside_temperature_max_threshold: requestBody.outsideMaxTemperature, 
-        outside_temperature_min_threshold: requestBody.outsideMinTemperature, 
-        outside_humidity_max_threshold: requestBody.outsideMaxHumidity,
-        outside_humidity_min_threshold: requestBody.outsideMinHumidity, 
-        outside_air_pressure_max_threshold: requestBody.outsideMaxAirPressure, 
-        outside_air_pressure_min_threshold: requestBody.outsideMinAirPressure,
-        outside_measure_date: new Date(),
+        threshold_id: requestBody.id,  
+        max_temperature: requestBody.outsideMaxTemperature, 
+        min_temperature: requestBody.outsideMinTemperature, 
+        max_humidity: requestBody.outsideMaxHumidity,
+        min_humidity: requestBody.outsideMinHumidity, 
+        max_air_pressure: requestBody.outsideMaxAirPressure, 
+        min_air_pressure: requestBody.outsideMinAirPressure,
     },
   });
   return result;

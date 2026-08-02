@@ -3,7 +3,7 @@ import { prisma } from '../lib/prisma'
 
 export const getThreshold = async () => {
   const thresholdValue = await prisma.threshold.findUnique({
-    where: { id: 1 }
+    where: { threshold_id: 1 }
   })
   return thresholdValue;
 };
