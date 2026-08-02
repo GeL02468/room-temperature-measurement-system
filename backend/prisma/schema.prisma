@@ -14,7 +14,7 @@ datasource db {
 }
 
 model InsideHistory {
-  inside_hisotry_id      Int      @id @default(autoincrement())
+  inside_history_id      Int      @id @default(autoincrement())
   device_id String
   temperature   Float
   humidity    Float
@@ -49,12 +49,12 @@ model Device {
   device_name    String
   threshold_id Int  @unique
   device_status  Status
-  geo_location_x Int
-  geo_location_y Int
-  temperature Float
-  humidity Float
-  air_pressure Float
-  measurement_time   DateTime
+  geo_location_x Int?
+  geo_location_y Int?
+  temperature Float?
+  humidity Float?
+  air_pressure Float?
+  measurement_time   DateTime?
   inside_histories InsideHistory[]
   outside_histories OutsideHistory[]
   notification Notification[]
