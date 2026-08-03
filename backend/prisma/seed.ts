@@ -7,20 +7,6 @@ const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  await prisma.threshold.upsert({
-    where: { threshold_id: 1 },
-    update: {},
-    create: {
-      threshold_id: 1,
-      max_temperature: 30,
-      min_temperature: 10,
-      max_humidity: 80,
-      min_humidity: 30,
-      max_air_pressure: 1100,
-      min_air_pressure: 900,
-    },
-  });
-
   await prisma.device.upsert({
     where: { device_id: "00:11:22:33:44:55" },
     update: {},
@@ -34,7 +20,21 @@ async function main() {
       humidity: 50,
       air_pressure: 1013,
       measurement_time: new Date(),
+    },
+  });
+
+  await prisma.threshold.upsert({
+    where: { threshold_id: 1 },
+    update: {},
+    create: {
       threshold_id: 1,
+      device_id: "00:11:22:33:44:55",
+      max_temperature: 30,
+      min_temperature: 10,
+      max_humidity: 80,
+      min_humidity: 30,
+      max_air_pressure: 1100,
+      min_air_pressure: 900,
     },
   });
 

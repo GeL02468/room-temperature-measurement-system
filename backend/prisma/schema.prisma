@@ -35,19 +35,19 @@ model OutsideHistory {
 
 model Threshold {
   threshold_id      Int      @id @default(autoincrement())
+  device_id String  @unique
   max_temperature   Float
   min_temperature   Float
   max_humidity    Float
   min_humidity    Float
   max_air_pressure    Float
   min_air_pressure    Float
-  device Device?
+  device   Device @relation(fields: [device_id], references: [device_id])
 }
 
 model Device {
   device_id      String      @id
   device_name    String
-  threshold_id Int  @unique
   device_status  Status
   geo_location_x Int?
   geo_location_y Int?
@@ -58,7 +58,7 @@ model Device {
   inside_histories InsideHistory[]
   outside_histories OutsideHistory[]
   notification Notification[]
-  threshold   Threshold @relation(fields: [threshold_id], references: [threshold_id])
+  threshold   Threshold?
 }
 
 model Notification {
