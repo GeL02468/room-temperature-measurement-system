@@ -8,6 +8,7 @@ import airPressureRouter from './routes/airPressureRoute'
 import thresholdRouter from './routes/thresholdRoute'
 import insideRouter from './routes/insideRoute'
 import outsideRouter from './routes/outsideRoute'
+import notificationRouter from './routes/route';
 
 const app = new Hono();
 
@@ -25,6 +26,7 @@ app.route('/measurement/air-pressure', airPressureRouter);
 app.route('/measurement/threshold', thresholdRouter);
 app.route('/measurement/inside', insideRouter);
 app.route('/measurement/outside', outsideRouter);
+app.route('/notification', notificationRouter)
 
 // 毎時0分に室外環境情報を登録する
 cron.schedule("0 * * * *", async() => {
