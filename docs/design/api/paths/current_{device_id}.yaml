@@ -10,9 +10,13 @@ get:
         application/json:
           schema:
             type: object
+            required:
+              - deviceName
+              - temperature
+              - humidity
+              - airPressure
+              - measurementTime
             properties:
-              deviceId:
-                $ref: '../components/schemas/deviceId.yaml'
               deviceName: 
                 $ref: '../components/schemas/deviceName.yaml'
               temperature:

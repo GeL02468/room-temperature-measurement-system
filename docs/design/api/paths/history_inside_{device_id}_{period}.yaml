@@ -24,8 +24,6 @@ get:
               properties:
                 insideHistoryId: 
                   $ref: '../components/schemas/insideHistoryId.yaml'
-                deviceId:
-                  $ref: '../components/schemas/deviceId.yaml'
                 deviceName: 
                   $ref: '../components/schemas/deviceName.yaml'
                 temperature:

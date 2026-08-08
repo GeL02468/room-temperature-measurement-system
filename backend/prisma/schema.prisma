@@ -34,8 +34,7 @@ model OutsideHistory {
 }
 
 model Threshold {
-  threshold_id      Int      @id @default(autoincrement())
-  device_id String  @unique
+  device_id String  @id @unique
   max_temperature   Float
   min_temperature   Float
   max_humidity    Float

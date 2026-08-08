@@ -9,15 +9,17 @@ security: []
 paths:
   /notification:
     $ref: "./paths/notification.yaml"
-  /login:
-    $ref: "./paths/getDeviceStatus.yaml"
+  /status:
+    $ref: "./paths/status.yaml"
   /setting:
-    $ref: "./paths/settingDevice.yaml"
+    $ref: "./paths/setting.yaml"
   /current/{device_id}:
-    $ref: "./paths/getInsideNowInfo.yaml"
+    $ref: "./paths/current_{device_id}.yaml"
   /history/inside/{device_id}/{period}:
-    $ref: "./paths/getInsideHistory.yaml"
+    $ref: "./paths/history_inside_{device_id}_{period}.yaml"
   /history/outside/{device_id}/{period}:
-    $ref: "./paths/getOutsideHistory.yaml"
+    $ref: "./paths/history_outside_{device_id}_{period}.yaml"
+  /thresholds:
+    $ref: "./paths/thresholds.yaml"
   /threshold/{device_id}:
-    $ref: "./paths/putThreshold.yaml"
+    $ref: "./paths/threshold_{device_id}.yaml"

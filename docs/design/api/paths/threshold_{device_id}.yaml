@@ -10,10 +10,13 @@ put:
         schema:
           type: object
           required:
-            - deviceId
+            - maxTemperature
+            - minTemperature
+            - maxHumidity
+            - minHumidity
+            - maxAirPressure
+            - minAirPressure
           properties:
-            deviceId:
-              $ref: '../components/schemas/deviceId.yaml'
             maxTemperature:
               $ref: '../components/schemas/maxTemperature.yaml'
             minTemperature:

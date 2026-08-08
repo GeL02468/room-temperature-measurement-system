@@ -24,10 +24,9 @@ async function main() {
   });
 
   await prisma.threshold.upsert({
-    where: { threshold_id: 1 },
+    where: { device_id: "00:11:22:33:44:55" },
     update: {},
     create: {
-      threshold_id: 1,
       device_id: "00:11:22:33:44:55",
       max_temperature: 30,
       min_temperature: 10,

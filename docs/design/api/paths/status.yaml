@@ -10,6 +10,12 @@ get:
             type: array
             items:
               type: object
+              required:
+                - deviceId
+                - deviceName
+                - deviceStatus
+                - geoLocationX
+                - geoLocationY
               properties:
                 deviceId:
                   $ref: '../components/schemas/deviceId.yaml'
