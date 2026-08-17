@@ -19,17 +19,17 @@ notificationRouter.delete(async(c: any) => {
 
 // 判定閾値取得
 thresholdRouter.get('/:deviceId', async(c: any) => {
-    const deviceId = c.req.param('deviceId');
-    const result = await thresholdController.getThresholdValue(deviceId);
-    return c.json(result);
+  const deviceId = c.req.param('deviceId');
+  const result = await thresholdController.getThresholdValue(deviceId);
+  return c.json(result);
 });
 
 // 判定閾値登録
 thresholdRouter.put('/:deviceId', async(c: any) => {
-    const deviceId = c.req.param('deviceId');
-    const body = await c.req.json();
-    const result = await thresholdController.putThresholdValue(deviceId, body);
-    return c.json(result);
+  const deviceId = c.req.param('deviceId');
+  const body = await c.req.json();
+  const result = await thresholdController.putThresholdValue(deviceId, body);
+  return c.json(result);
 });
 
 
