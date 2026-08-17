@@ -3,10 +3,18 @@ import * as getNotificationController from '../controllers/notificationControlle
 
 const notificationRouter = new Hono();
 
-// 閾値取得パス
+// 通知全件取得パス
 notificationRouter.get(async(c: any) => {
-    const result = await getNotificationController.getNotificationController();
-    return c.json(result);
+  const result = await getNotificationController.getNotificationController();
+  return c.json(result);
 });
 
-export default notificationRouter;
+// 通知全件削除パス
+notificationRouter.delete(async(c: any) => {
+  const result = await getNotificationController.deleteNotificationController();
+  return c.json(result);
+});
+
+export {
+  notificationRouter
+} ;

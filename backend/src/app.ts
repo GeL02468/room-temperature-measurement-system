@@ -8,7 +8,7 @@ import airPressureRouter from './routes/airPressureRoute'
 import thresholdRouter from './routes/thresholdRoute'
 import insideRouter from './routes/insideRoute'
 import outsideRouter from './routes/outsideRoute'
-import notificationRouter from './routes/route';
+import { notificationRouter } from './routes/route';
 
 const app = new Hono();
 
