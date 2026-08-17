@@ -1,14 +1,11 @@
 import { Hono } from 'hono'
-import { cors } from "hono/cors"; // 追加
+import { cors } from "hono/cors";
 import axios from 'axios';
 import cron from "node-cron";
 import temperatureRouter from './routes/temperatureRoute'
 import humidityRouter from './routes/humidityRoute'
 import airPressureRouter from './routes/airPressureRoute'
-import thresholdRouter from './routes/thresholdRoute'
-import insideRouter from './routes/insideRoute'
-import outsideRouter from './routes/outsideRoute'
-import { notificationRouter } from './routes/route';
+import { notificationRouter, thresholdRouter } from './routes/route';
 
 const app = new Hono();
 
@@ -24,9 +21,8 @@ app.route('/measurement/temperature', temperatureRouter);
 app.route('/measurement/humidity', humidityRouter);
 app.route('/measurement/air-pressure', airPressureRouter);
 app.route('/measurement/threshold', thresholdRouter);
-app.route('/measurement/inside', insideRouter);
-app.route('/measurement/outside', outsideRouter);
 app.route('/notification', notificationRouter)
+app.route('/threshold', thresholdRouter);
 
 // 毎時0分に室外環境情報を登録する
 cron.schedule("0 * * * *", async() => {

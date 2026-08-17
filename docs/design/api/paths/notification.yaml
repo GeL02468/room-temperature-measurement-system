@@ -37,8 +37,8 @@ get:
           schema:
             $ref: '../components/schemas/error.yaml'
 delete:
-  summary: 通知削除API
-  description: 通知削除API
+  summary: 通知全件削除API
+  description: 通知全件削除API
   responses:
     200:
       description: Success

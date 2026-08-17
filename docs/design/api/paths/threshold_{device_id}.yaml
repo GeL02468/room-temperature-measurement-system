@@ -1,7 +1,54 @@
 parameters:
   - $ref: '../components/parameters/deviceId.yaml'
+get:
+  summary: 判定閾値取得API
+  description: 当該デバイスの各閾値情報を取得する
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+                - deviceName
+                - maxTemperature
+                - minTemperature
+                - maxHumidity
+                - minHumidity
+                - maxAirPressure
+                - minAirPressure
+              properties:
+                deviceName:
+                  $ref: '../components/schemas/deviceName.yaml'
+                maxTemperature:
+                  $ref: '../components/schemas/maxTemperature.yaml'
+                minTemperature:
+                  $ref: '../components/schemas/minTemperature.yaml'
+                maxHumidity:
+                  $ref: '../components/schemas/maxHumidity.yaml'
+                minHumidity:
+                  $ref: '../components/schemas/minHumidity.yaml'
+                maxAirPressure:
+                  $ref: '../components/schemas/maxAirPressure.yaml'
+                minAirPressure:
+                  $ref: '../components/schemas/minAirPressure.yaml'
+    404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/error.yaml'
 put:
-  summary: 判定閾値設定API
+  summary: 判定閾値更新API
   description: 各環境情報のアラートの閾値を設定するAPI
   requestBody:
     required: true

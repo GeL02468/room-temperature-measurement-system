@@ -19,7 +19,5 @@ paths:
     $ref: "./paths/history_inside_{device_id}_{period}.yaml"
   /history/outside/{device_id}/{period}:
     $ref: "./paths/history_outside_{device_id}_{period}.yaml"
-  /thresholds:
-    $ref: "./paths/thresholds.yaml"
   /threshold/{device_id}:
     $ref: "./paths/threshold_{device_id}.yaml"
